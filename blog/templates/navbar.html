@@ -9,19 +9,23 @@
 
           {% if user.is_authenticated %}
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="addCategory">Add category </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout">Logout</a>
           </li> 
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Write a blog </a>
+            <a class="nav-link" href="writeblog">Write a blog </a>
+          </li> 
+
+          <li class="nav-item">
+            <a class="nav-link" href="sidewidget">Write in sidewidget </a>
           </li> 
 
           {% else %}

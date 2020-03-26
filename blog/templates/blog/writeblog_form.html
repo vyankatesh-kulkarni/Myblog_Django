@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 {% block CenterData %} <br>
-<h2> Signupform </h2> <br>
+<h2> Write your blog here </h2>      <br>
 <form action="" method="POST">
     {% csrf_token %}
-    <table border="1" width = '750' cellspacing = '' cellpadding = '10'>
+    <table border="1" width = '750' cellspacing ='4' cellpadding = '5'>
         {{ form.as_table }}
         <tr>
             <td>
-                <input type="submit" value="login">
+                <input type="submit">
             </td>
         </tr>
     </table>
-
 </form>
-<br>
-<br>
-
+<br><br>
 {% endblock %}
