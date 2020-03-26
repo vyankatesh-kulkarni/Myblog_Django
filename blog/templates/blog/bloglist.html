@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block CenterData %}
+<br>
+<h3> Blog List</h3>   <br>
+<table border="1" width='400' cellpadding='5'>
+    <thead style="text-align: center;">
+        <th>titile</th>
+        <th colspan="2"> Action </th>
+    </thead>
+    {% for blog in object_list %}
+    <tr>
+        <td>{{blog.title }}</td>
+        <td><a href="deleteblog/{{blog.id}}">Delete</a></td>
+        <td><a href="editblog/{{blog.id}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+{% endblock %}

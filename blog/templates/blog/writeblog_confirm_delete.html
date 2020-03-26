@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block CenterData %}
+<br>
+
+<h1>Blog Deletion Cofirmation</h1>
+<form method="POST">
+    {%csrf_token%} Please Confirm DELETE
+    <h3>{{ object.title }}</h3>
+    <input type="submit" value="delete">
+</form>
+
+{% endblock %}
+
+

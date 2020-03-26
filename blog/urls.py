@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
-from blog.blogviews import *
+from blog import blogviews
 from django.contrib.auth.views import LoginView,LogoutView
 
 
@@ -14,8 +14,11 @@ urlpatterns = [
     path('logout',LogoutView.as_view()),
    # path('login',LoginView.as_view(template_name = 'login.html') , name='login')
 
-    path('writeblog',WriteBlog.as_view()),
-    path('sidewidget',WrInSiWid.as_view()),
+    path('writeblog',blogviews.Writeblog.as_view()),
+    path('sidewidget',blogviews.WrInSiWid.as_view()),
+    path('editblog',blogviews.bloglist),
+    path('deleteblog/<int:pk>',blogviews.DeleteBlog.as_view()),
+    path('editblog/<int:pk>',blogviews.EditBlog.as_view()),
 
     path('addCategory',views.AddCategory.as_view()),
 ]
