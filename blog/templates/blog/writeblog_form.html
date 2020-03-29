@@ -4,7 +4,20 @@
 <form action="" method="POST">
     {% csrf_token %}
     <table border="1" width = '750' cellspacing ='4' cellpadding = '5'>
-        {{ form.as_table }}
+       <!-- {{ form.as_table }}  -->
+       
+         <tr>
+             <td>Title </td>
+             <td> {{ form.title }}</td>
+         </tr>
+         <tr>
+            <td> Category </td>
+            <td> {{ form.category }}</td>
+        </tr>
+        <tr>
+            <td> Content </td>
+            <td> {{ form.content }}</td>
+        </tr>
         <tr>
             <td>
                 <input type="submit">

@@ -40,3 +40,10 @@ class EditBlog(UpdateView):
     template_name = 'blog/editblog.html'
     success_url = '/'
 
+
+def ReadBlog(request):
+    pid = request.GET.get('id')
+    print('id =>',pid)
+    post  = WriteBlog.objects.get(id = pid)
+    return render(request,'readblog.html',{'post':post})
+

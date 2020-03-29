@@ -13,24 +13,40 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="addCategory">Add cate </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout">Logout</a>
-          </li> 
+          
 
           <li class="nav-item">
             <a class="nav-link" href="writeblog">Write blog </a>
           </li> 
 
+             <!--  Nested if-else  -->
+         {% if user.is_superuser %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="addCategory">Add cate </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="categorylist"> Cate_list </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="sidewidget"> sidewidget </a>
-          </li> 
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="editblog"> edit blog </a>
           </li>
+
+          {% endif%}
+          <!-- end of nested if-else -->
+
+          <li class="nav-item">
+            <a class="nav-link" href="logout">Logout</a>
+          </li> 
+           
+          
+          
 
           {% else %}
 

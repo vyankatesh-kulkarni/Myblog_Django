@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,reverse
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .models import WriteBlog,Category,SideWidget
-from django.views.generic import FormView,DetailView,ListView,CreateView
+from django.views.generic import FormView,DetailView,ListView,CreateView,DeleteView
 from django.contrib.auth.forms import UserCreationForm
 
  
@@ -40,4 +40,13 @@ class AddCategory(CreateView):
         form.save()
         return redirect('/')
 
+
+class CategoryList(ListView):
+    model = Category
+    fields = '__all__'
+    template_name = 'blog/category_list.html'
+
+class DeleteCategory(DeleteView):
+    model = Category
+    success_url = '/'
 ##### side widget
