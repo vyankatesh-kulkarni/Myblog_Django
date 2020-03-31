@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import FormView,CreateView,ListView,DeleteView,UpdateView
+from django.views.generic import FormView,CreateView,ListView,DeleteView,UpdateView,DetailView
 from blog.models import WriteBlog,SideWidget
 from django import forms
 
@@ -41,9 +41,12 @@ class EditBlog(UpdateView):
     success_url = '/'
 
 
-def ReadBlog(request):
-    pid = request.GET.get('id')
-    print('id =>',pid)
-    post  = WriteBlog.objects.get(id = pid)
-    return render(request,'readblog.html',{'post':post})
-
+class ReadBlog(DetailView):
+    #pid = request.GET.get('id')
+    #print('id =>',pid)
+    #post  = WriteBlog.objects.get(id = pid)
+    #return render(request,'readblog.html',{'post':post})
+    model = WriteBlog
+    template_name = 'blog/blog_detail.html'
+    
+  

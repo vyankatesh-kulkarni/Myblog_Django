@@ -4,13 +4,15 @@
 <h3> Blog List</h3>   <br>
 <table border="2px solid black" width='600' cellpadding='10' cellspacing = '10' >
     <thead style="text-align: center;background-color:#9ea4a8;">
-        <th> Titile </th>
+        <th> Title </th>
+        <th> Category </th>
         <th colspan="2"> Action </th>
     </thead>
     <tbody style="font-size: 18px;">
         {% for blog in object_list %}
     <tr>
         <td>{{blog.title }}</td>
+        <td>{{blog.category_id }}</td>
         <td><a href="deleteblog/{{blog.id}}">Delete</a></td>
         <td><a href="editblog/{{blog.id}}">Edit</a></td>
     </tr>

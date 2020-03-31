@@ -10,13 +10,21 @@ from django.contrib.auth.forms import UserCreationForm
 class Homeview(ListView):
     model = WriteBlog
     template_name = 'index.html'
-    queryset     = WriteBlog.objects.all()
+    #queryset     = WriteBlog.objects.all()
+
+    def get_queryset(self):
+        queryset = WriteBlog.objects.all()
+        if self.request.GET.get('cn'):
+          queryset = queryset.filter(category_id = self.request.GET.get('cn'))
+        return queryset
 
     def get_context_data(self,**kwargs):
         context = super(Homeview,self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context['sidewidget'] = SideWidget.objects.all()
         return context
+
+
 
 def Signup(request):
     if request.method == 'POST':
@@ -27,6 +35,14 @@ def Signup(request):
     else:
         form = UserCreationForm()
         return render(request,'blog/signup.html',{'form':form})
+
+
+def sortBlogs(request):
+    cn  = request.GET.get('cn')
+    print('category =>',cn)
+    bl = WriteBlog.objects.filter(category_id = cn)
+    print('list =>',bl)
+    return render(request,'index.html',{'object_list':bl}) 
 
 
 ############# category
