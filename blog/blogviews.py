@@ -2,11 +2,13 @@ from django.shortcuts import render,redirect
 from django.views.generic import FormView,CreateView,ListView,DeleteView,UpdateView,DetailView
 from blog.models import WriteBlog,SideWidget
 from django import forms
+from . forms import WriteBlogForm
 
 
 class Writeblog(CreateView):
     model = WriteBlog
-    fields = ('title','category','content')
+    #fields = ('title','category','content')
+    form_class = WriteBlogForm
    
     def form_valid(self,form):
         form.instance.author = self.request.user
